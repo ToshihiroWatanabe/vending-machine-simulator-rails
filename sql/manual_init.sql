@@ -132,23 +132,23 @@ VALUES
   (2, "あたたかい");
 
 INSERT INTO
-  products (id, name, temperature, price, vendor_id)
+  products (id, name, temperature_id, price, vendor_id)
 VALUES
   (
     '1',
     '天然の水',
-    'cold',
+    1,
     '100',
     '1'
   );
 
 INSERT INTO
-  products (id, name, temperature, price, vendor_id)
+  products (id, name, temperature_id, price, vendor_id)
 VALUES
   (
     '2',
     'あったかコーヒー',
-    'hot',
+    2,
     '120',
     '2'
   );
