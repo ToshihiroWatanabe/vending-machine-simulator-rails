@@ -1,24 +1,11 @@
-# README
+# vending-machine-simulator-rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+自動販売機シミュレーター
 
-Things you may want to cover:
+# 実行方法
 
-* Ruby version
+Dockerを起動して、以下のコマンドを実行してください。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+docker-compose up
+```
