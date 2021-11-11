@@ -40,6 +40,16 @@ VALUES
     ('2', '株式会社あたつみ');
 
 INSERT INTO
+    temperatures(id, name)
+VALUES
+    (1, "つめたい");
+
+INSERT INTO
+    temperatures(id, name)
+VALUES
+    (2, "あたたかい");
+
+INSERT INTO
     products (id, name, temperature, price, vendor_id)
 VALUES
     (
