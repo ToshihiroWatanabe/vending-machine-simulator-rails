@@ -9,4 +9,7 @@ Dockerを起動して、以下のコマンドを実行してください。
 ```
 docker-compose up -d
 docker-compose run web rails db:create
+docker-compose run web rails db:migrate
 ```
+
+money_stocksテーブルに初期データを挿入してください。
