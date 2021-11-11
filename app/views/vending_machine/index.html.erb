@@ -10,7 +10,7 @@
     <% moneyTypes.each do |moneyType| %>
       <tr>
         <th><%= moneyType %>円<% if moneyType == 1000 then %>札<% else %>玉<% end %></th>
-        <th>枚</th>
+        <th><%= @money_stock[("stock_" + moneyType.to_s).to_sym] %>枚</th>
       </tr>
     <% end %>
   </tbody>
