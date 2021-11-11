@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS item_stocks(
 );
 
 -- 売上履歴テーブル
-CREATE TABLE IF NOT EXISTS sales_history(
+CREATE TABLE IF NOT EXISTS sales_histories(
   -- 履歴ID
   id VARCHAR(36) PRIMARY KEY,
   -- 購入時刻
