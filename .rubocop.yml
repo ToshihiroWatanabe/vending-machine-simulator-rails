@@ -4,4 +4,5 @@ Metrics/BlockLength:
   Exclude:
     - "node_modules/**/*"
     - "log/**/*"
+    - "spec/**/*"
     - "tmp/**/*"
