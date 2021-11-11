@@ -1,0 +1,7 @@
+AllCops:
+  NewCops: enable
+Metrics/BlockLength:
+  Exclude:
+    - "node_modules/**/*"
+    - "log/**/*"
+    - "tmp/**/*"
