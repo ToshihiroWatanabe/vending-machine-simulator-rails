@@ -7,5 +7,6 @@
 Dockerを起動して、以下のコマンドを実行してください。
 
 ```
-docker-compose up
+docker-compose up -d
+docker-compose run web rails db:create
 ```
