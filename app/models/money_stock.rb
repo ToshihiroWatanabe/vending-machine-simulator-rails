@@ -1,0 +1,2 @@
+class MoneyStock < ApplicationRecord
+end
