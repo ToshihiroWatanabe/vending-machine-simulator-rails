@@ -23,6 +23,7 @@ class VendingMachineController < ActionController::Base
 
   def release
     money_stock = MoneyStock.first
+    # TODO: 一度でも商品が購入されている時
     # 一度も商品が購入されていない時
     money_stock[:deposit] = 0
     [10, 50, 100, 500, 1000].each do |money_type|
