@@ -12,26 +12,27 @@
     <p>
       投入金額: <%= @money_stock[:deposit] %>円
     </p>
-    <div>
+    <div style="display:flex;">
       <% moneyTypes=[10, 50, 100, 500, 1000] %>
       <% moneyTypes.each do |moneyType| %>
-        <button><%= moneyType %>円<% if moneyType == 1000 then %>札<% else %>玉<% end %>を入れる</button>
-      <% end %>
-    </div>
-    <p><button>おつり・返却</button></p>
-    <hr />
-    <h2>自動販売機の中のお金</h2>
-    <table>
-      <tbody>
-        <% moneyTypes=[10, 50, 100, 500, 1000] %>
-        <% moneyTypes.each do |moneyType| %>
-          <tr>
-            <th><%= moneyType %>円<% if moneyType == 1000 then %>札<% else %>玉<% end %></th>
-            <th><%= @money_stock[("stock_" + moneyType.to_s).to_sym] %>枚</th>
-          </tr>
+        <% if moneyType == 1000 then n = "札" else n = "玉" end %>
+          <%= button_to "#{moneyType}円" + n + "を入れる", "/insert/#{moneyType}", method: :post %>
         <% end %>
-      </tbody>
-    </table>
-    <a href="/admin">管理画面へ</a>
-  </body>
-</html>
+      </div>
+      <p><button>おつり・返却</button></p>
+      <hr />
+      <h2>自動販売機の中のお金</h2>
+      <table>
+        <tbody>
+          <% moneyTypes=[10, 50, 100, 500, 1000] %>
+          <% moneyTypes.each do |moneyType| %>
+            <tr>
+              <th><%= moneyType %>円<% if moneyType == 1000 then %>札<% else %>玉<% end %></th>
+              <th><%= @money_stock[("stock_" + moneyType.to_s).to_sym] %>枚</th>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <a href="/admin">管理画面へ</a>
+    </body>
+  </html>
