@@ -19,7 +19,8 @@
           <%= button_to "#{moneyType}円" + n + "を入れる", "/insert/#{moneyType}", method: :post %>
         <% end %>
       </div>
-      <p><button>おつり・返却</button></p>
+      <%# <p><button>おつり・返却</button></p> %>
+      <%= button_to "おつり・返却", "/release", method: :post %>
       <hr />
       <h2>自動販売機の中のお金</h2>
       <table>
