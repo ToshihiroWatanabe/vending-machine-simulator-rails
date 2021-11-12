@@ -6,7 +6,7 @@
     <h1>自動販売機シミュレーター</h1>
     <div style="display:flex;">
       <% @item_stocks.each do |item_stock| %>
-        <%= button_to "/purchase/#{item_stock[:id]}", {disabled: item_stock[:quantity] <= 0 || @money_stock[:deposit] < item_stock[:price]} do %>
+        <%= button_to "/purchase/#{item_stock[:id]}", {method: :post, disabled: item_stock[:quantity] <= 0 || @money_stock[:deposit] < item_stock[:price]} do %>
           <%= item_stock[:name] %><br>
           <%= item_stock[:temperature] %><br>
           <%= item_stock[:price] %>円

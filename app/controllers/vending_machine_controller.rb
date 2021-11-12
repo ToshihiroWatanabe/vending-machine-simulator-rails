@@ -40,6 +40,11 @@ class VendingMachineController < ActionController::Base
     redirect_to '/'
   end
 
+  def purchase
+    puts params[:id]
+    redirect_to '/'
+  end
+
   def admin
     render action: :admin
   end
