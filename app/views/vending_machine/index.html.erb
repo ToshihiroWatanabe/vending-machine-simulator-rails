@@ -1,18 +1,27 @@
-<head>
-  <title>自動販売機シミュレーター</title>
-</head>
-<h1>自動販売機シミュレーター</h1>
-<hr />
-<h2>自動販売機の中のお金</h2>
-<table>
-  <tbody>
-    <% moneyTypes=[10, 50, 100, 500, 1000] %>
-    <% moneyTypes.each do |moneyType| %>
-      <tr>
-        <th><%= moneyType %>円<% if moneyType == 1000 then %>札<% else %>玉<% end %></th>
-        <th><%= @money_stock[("stock_" + moneyType.to_s).to_sym] %>枚</th>
-      </tr>
+<html lang="ja">
+  <head>
+    <title>自動販売機シミュレーター</title>
+  </head>
+  <body>
+    <h1>自動販売機シミュレーター</h1>
+    <% @item_stocks.each do |item_stock| %>
+      <button><%= item_stock[:name] %><br>
+        <%= item_stock[:temperature] %><br>
+        <%= item_stock[:price] %>円</button>
     <% end %>
-  </tbody>
-</table>
-<a href="/admin">管理画面へ</a>
+    <hr />
+    <h2>自動販売機の中のお金</h2>
+    <table>
+      <tbody>
+        <% moneyTypes=[10, 50, 100, 500, 1000] %>
+        <% moneyTypes.each do |moneyType| %>
+          <tr>
+            <th><%= moneyType %>円<% if moneyType == 1000 then %>札<% else %>玉<% end %></th>
+            <th><%= @money_stock[("stock_" + moneyType.to_s).to_sym] %>枚</th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <a href="/admin">管理画面へ</a>
+  </body>
+</html>
