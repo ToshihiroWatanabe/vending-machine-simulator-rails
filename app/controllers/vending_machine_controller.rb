@@ -34,7 +34,17 @@ class VendingMachineController < ActionController::Base
   end
 
   def purchase
-    puts params[:id]
+    item = ItemStock.joins(:product)
+                    .select('item_stocks.*, products.price')
+                    .where(id: params[:id].to_i).first
+    money_stock = MoneyStock.first
+    money_stock[:deposit] -= item[:price]
+    [10, 50, 100, 500, 1000].each do |money_type|
+      money_stock["deposit_#{money_type}".to_sym] = 0
+    end
+    money_stock.save
+    # TODO: 商品の残り数を減らす
+    # TODO: 販売履歴に記録する
     redirect_to '/'
   end
 
