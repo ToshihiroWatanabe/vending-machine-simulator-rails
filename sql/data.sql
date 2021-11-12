@@ -106,6 +106,25 @@ VALUES
     );
 
 INSERT INTO
+    products (
+        name,
+        temperature_id,
+        price,
+        vendor_id,
+        created_at,
+        updated_at
+    )
+VALUES
+    (
+        'エナジーパワー',
+        1,
+        210,
+        1,
+        '1970-01-01 00:00:00',
+        '1970-01-01 00:00:00'
+    );
+
+INSERT INTO
     item_stocks (product_id, quantity, created_at, updated_at)
 VALUES
     (
@@ -120,6 +139,16 @@ INSERT INTO
 VALUES
     (
         2,
+        24,
+        '1970-01-01 00:00:00',
+        '1970-01-01 00:00:00'
+    );
+
+INSERT INTO
+    item_stocks (product_id, quantity, created_at, updated_at)
+VALUES
+    (
+        3,
         24,
         '1970-01-01 00:00:00',
         '1970-01-01 00:00:00'
