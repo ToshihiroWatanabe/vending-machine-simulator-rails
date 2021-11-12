@@ -24,11 +24,11 @@
       <h2>自動販売機の中のお金</h2>
       <table>
         <tbody>
-          <% moneyTypes=[10, 50, 100, 500, 1000] %>
-          <% moneyTypes.each do |moneyType| %>
+          <% money_types=[10, 50, 100, 500, 1000] %>
+          <% money_types.each do |money_type| %>
             <tr>
-              <th><%= moneyType %>円<% if moneyType == 1000 then %>札<% else %>玉<% end %></th>
-              <th><%= @money_stock[("stock_" + moneyType.to_s).to_sym] %>枚</th>
+              <th><%= money_type %>円<% if money_type == 1000 then %>札<% else %>玉<% end %></th>
+              <th><%= @money_stock[("stock_" + money_type.to_s).to_sym] %>枚</th>
             </tr>
           <% end %>
         </tbody>

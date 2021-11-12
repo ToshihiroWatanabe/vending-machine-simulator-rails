@@ -7,18 +7,21 @@ class VendingMachineController < ActionController::Base
   end
 
   def insert
-    puts('insert ' + params[:moneyType])
+    money_type = params[:money_type].to_i
     money_stock = MoneyStock.first
+
+    puts money_stock.inspect
+
     # 投入金額が9999円を超えるなら投入しない
-    if money_stock[:deposit] + params[:moneyType].to_i > 9999
-      redirect_to '/'
-      return
-    end
+    return if money_stock[:deposit] + money_type > 9999
+
     # 同じ硬貨は20枚を超えて投入できない
-    if money_stock[('stock_' + params[:moneyType].to_s).to_sym] >= 20
-      redirect_to '/'
-      return
-    end
+    return if money_stock["deposit_#{money_type}".to_sym] >= 20
+
+    # 更新
+    money_stock[:deposit] += money_type
+    money_stock["stock_#{money_type}".to_sym] += 1
+    money_stock.save
     redirect_to '/'
   end
 
