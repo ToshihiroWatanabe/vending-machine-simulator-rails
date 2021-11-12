@@ -4,14 +4,16 @@
   </head>
   <body>
     <h1>自動販売機シミュレーター</h1>
-    <% @item_stocks.each do |item_stock| %>
-      <button <% if item_stock[:quantity] <= 0 || @money_stock[:deposit] < item_stock[:price] %>disabled<% end %>><%= item_stock[:name] %><br>
-        <%= item_stock[:temperature] %><br>
-        <%= item_stock[:price] %>円</button>
-    <% end %>
-    <p>
-      投入金額: <%= @money_stock[:deposit] %>円
-    </p>
+    <div style="display:flex;">
+      <% @item_stocks.each do |item_stock| %>
+        <%= button_to "/purchase/#{item_stock[:id]}", {disabled: item_stock[:quantity] <= 0 || @money_stock[:deposit] < item_stock[:price]} do %>
+          <%= item_stock[:name] %><br>
+          <%= item_stock[:temperature] %><br>
+          <%= item_stock[:price] %>円
+        <% end %>
+      <% end %>
+    </div>
+    投入金額: <%= @money_stock[:deposit] %>円
     <div style="display:flex;">
       <% moneyTypes=[10, 50, 100, 500, 1000] %>
       <% moneyTypes.each do |moneyType| %>
