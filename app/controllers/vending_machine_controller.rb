@@ -1,7 +1,7 @@
 class VendingMachineController < ActionController::Base
   def index
     @item_stocks = ItemStock.joins(product: :temperature)
-                            .select('item_stocks.*, products.name, products.price, temperatures.name AS temperature')
+                            .select('item_stocks.*, products.name, products.price, temperatures.name AS temperature').order(:id)
     @money_stock = MoneyStock.first
     render action: :index
   end
@@ -44,7 +44,10 @@ class VendingMachineController < ActionController::Base
       money_stock["deposit_#{money_type}".to_sym] = 0
     end
     money_stock.save
-    # TODO: 商品の残り数を減らす
+    # 商品の残り数を減らす
+    item = ItemStock.where(id: params[:id].to_i).first
+    item[:quantity] -= 1
+    item.save
     # TODO: 販売履歴に記録する
     redirect_to '/'
   end
